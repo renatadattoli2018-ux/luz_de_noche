@@ -18,3 +18,12 @@ RNF1 - Tiempo de Respuesta: El tiempo entre la detección de presencia y el ence
 RNF2 - Simulación y Validación: Toda la lógica del código y las conexiones deben estar 100% probadas en Wokwi antes de comprar el hardware físico.   
 RNF3 - Bajo Costo: El presupuesto global de componentes debe ser mínimo para facilitar la compra compartida entre los integrantes del equipo.   
 RNF4 - Eficiencia Energética: La iluminación operará solo por demanda corta para reducir el consumo eléctrico al mínimo.
+
+Precios estimados: 
+Arduino Nano V3 (con cable USB) $8.000
+Sensor Ultrasónico HC-SR041 $3.800
+Fotorresistencia (LDR) + Resistencia 10Omega $2.000
+LED Blanco/Cálido + Resistencia 220 1=$500 2=$1.000 
+Protoboard de 400 puntos $3.500
+Cables Jumper (Macho-Macho / Macho-Hembra) 1=$200 10=$2.000
+TOTAL ESTIMADO$20.300
