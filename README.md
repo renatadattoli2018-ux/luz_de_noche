@@ -27,3 +27,53 @@ LED Blanco/Cálido + Resistencia 220 1=$500 2=$1.000
 Protoboard de 400 puntos $3.500
 Cables Jumper (Macho-Macho / Macho-Hembra) 1=$200 10=$2.000
 TOTAL ESTIMADO$20.300
+
+El codigo es:
+const int TRIG_PIN = 10; 
+const int ECHO_PIN = 9;  
+const int LDR_PIN = A0;      
+const int LED_PIN = 3;       
+
+const int UMBRAL_OSCURIDAD = 400;   
+const float UMBRAL_DISTANCIA = 200.0; 
+
+void setup() {
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+
+  Serial.begin(9600);
+  Serial.println("--- Sistema Reiniciado ---");
+}
+
+void loop() {
+  int valorLDR = analogRead(LDR_PIN);
+
+  // Asegurar pulso limpio en TRIG
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(4);
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+
+
+  long duracion = pulseIn(ECHO_PIN, HIGH, 30000);
+  float distanciaCm = duracion * 0.0343 / 2.0;
+
+  bool hayOscuridad = (valorLDR < UMBRAL_OSCURIDAD); 
+  bool hayPresencia = (distanciaCm > 2.0 && distanciaCm < UMBRAL_DISTANCIA);
+
+  Serial.print("LDR: "); Serial.print(valorLDR);
+  Serial.print(" (Oscuro: "); Serial.print(hayOscuridad ? "SI" : "NO");
+  Serial.print(") | Dist: "); Serial.print(distanciaCm);
+  Serial.print(" cm (Cerca: "); Serial.print(hayPresencia ? "SI" : "NO");
+  Serial.println(")");
+
+  if (hayOscuridad && hayPresencia) {
+    digitalWrite(LED_PIN, HIGH);
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
+
+  delay(400);
+}
