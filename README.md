@@ -10,7 +10,7 @@ Para transitar con seguridad sin tener que buscar interruptores a ciegas ni desp
 Requerimientos Funcionales
 RF1 - Lectura de Luminosidad: El sistema debe monitorear en tiempo real la luz ambiental mediante una fotorresistencia (LDR).
 RF2 - Detección de Proximidad: El sistema debe medir continuamente la distancia a través del sensor ultrasónico HC-SR04 para detectar la presencia de personas.
-RF3 - Lógica de Encendido: El sistema debe activar el LED de iluminación únicamente cuando la luz ambiental esté por debajo del umbral establecido (oscuridad) Y se detecte una persona a menos de 50 cm.
+RF3 - Lógica de Encendido: El sistema debe activar el LED de iluminación únicamente cuando la luz ambiental esté por debajo del umbral establecido (oscuridad) Y se detecte una persona a menos de 30 cm.
 RF4 - Desactivación Automática: El sistema debe apagar el LED automáticamente cuando la persona se aleje del rango o la luz ambiental vuelva a subir.
 
 Requerimientos No Funcionales:
